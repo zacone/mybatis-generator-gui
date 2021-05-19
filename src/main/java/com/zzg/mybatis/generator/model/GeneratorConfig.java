@@ -62,6 +62,8 @@ public class GeneratorConfig {
 
 	private boolean useTableNameAlias;
 
+	private boolean useFlatModelType;
+
 	private boolean useDAOExtendStyle;
 
     private boolean useSchemaPrefix;
@@ -278,6 +280,18 @@ public class GeneratorConfig {
 
 	public boolean isUseTableNameAlias() {
 		return useTableNameAlias;
+	}
+
+	public boolean getUseFlatModelType() {
+		return useFlatModelType;
+	}
+
+	public void setUseFlatModelType(boolean useFlatModelType) {
+		this.useFlatModelType = useFlatModelType;
+	}
+
+	public boolean isUseFlatModelType() {
+		return useFlatModelType;
 	}
 
 	public boolean isOverrideXML() {

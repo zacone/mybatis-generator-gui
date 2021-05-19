@@ -134,6 +134,10 @@ public class MybatisGeneratorBridge {
             tableConfig.setAlias(generatorConfig.getTableName());
         }
 
+		if(generatorConfig.isUseFlatModelType()){
+            tableConfig.setConfiguredModelType("flat");
+        }
+
         JDBCConnectionConfiguration jdbcConfig = new JDBCConnectionConfiguration();
         if (DbType.MySQL.name().equals(dbType) || DbType.MySQL_8.name().equals(dbType)) {
 	        jdbcConfig.addProperty("nullCatalogMeansCurrent", "true");

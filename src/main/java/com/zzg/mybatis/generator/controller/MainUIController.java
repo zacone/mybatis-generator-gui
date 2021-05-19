@@ -90,6 +90,8 @@ public class MainUIController extends BaseFXController {
     @FXML
     private CheckBox useTableNameAliasCheckbox;
     @FXML
+    private CheckBox useFlatModelTypeCheckbox;
+    @FXML
     private CheckBox annotationCheckBox;
     @FXML
     private CheckBox useActualColumnNamesCheckbox;
@@ -271,6 +273,7 @@ public class MainUIController extends BaseFXController {
 		commentCheckBox.setTooltip(new Tooltip("使用数据库的列注释作为实体类字段名的Java注释 "));
 		useActualColumnNamesCheckbox.setTooltip(new Tooltip("是否使用数据库实际的列名作为实体类域的名称"));
 		useTableNameAliasCheckbox.setTooltip(new Tooltip("在Mapper XML文件中表名使用别名，并且列全部使用as查询"));
+        useFlatModelTypeCheckbox.setTooltip(new Tooltip("生成实体类时不拆分出WithBlobs子类"));
 		overrideXML.setTooltip(new Tooltip("重新生成时把原XML文件覆盖，否则是追加"));
         useDAOExtendStyle.setTooltip(new Tooltip("将通用接口方法放在公共接口中，DAO接口留空"));
         forUpdateCheckBox.setTooltip(new Tooltip("在Select语句中增加for update后缀"));
@@ -431,6 +434,7 @@ public class MainUIController extends BaseFXController {
         generatorConfig.setNeedToStringHashcodeEquals(needToStringHashcodeEquals.isSelected());
         generatorConfig.setUseLombokPlugin(useLombokPlugin.isSelected());
         generatorConfig.setUseTableNameAlias(useTableNameAliasCheckbox.isSelected());
+        generatorConfig.setUseFlatModelType(useFlatModelTypeCheckbox.isSelected());
         generatorConfig.setNeedForUpdate(forUpdateCheckBox.isSelected());
         generatorConfig.setAnnotationDAO(annotationDAOCheckBox.isSelected());
         generatorConfig.setAnnotation(annotationCheckBox.isSelected());
@@ -463,6 +467,7 @@ public class MainUIController extends BaseFXController {
         needToStringHashcodeEquals.setSelected(generatorConfig.isNeedToStringHashcodeEquals());
         useLombokPlugin.setSelected(generatorConfig.isUseLombokPlugin());
         useTableNameAliasCheckbox.setSelected(generatorConfig.getUseTableNameAlias());
+        useFlatModelTypeCheckbox.setSelected(generatorConfig.getUseFlatModelType());
         forUpdateCheckBox.setSelected(generatorConfig.isNeedForUpdate());
         annotationDAOCheckBox.setSelected(generatorConfig.isAnnotationDAO());
         annotationCheckBox.setSelected(generatorConfig.isAnnotation());
